@@ -27,20 +27,22 @@ public class ParkingLot {
             cID.setDateIn(enteringLot); //setting in Date
             System.out.println("Car #"+ cID.getCarID() + " allowed to park.");
             System.out.println("Date: "+ cID.getDateIn() +".");
-            this.carParked++; carInfo.add(cID);}
+            carParked++; carInfo.add(cID);}
     }
 
     //Car leaving Parking lot.
     public void ExitingLot(int cID) {
         for (int i=0; i< carInfo.size(); i++){
-            if(cID == carInfo.get(i).getCarID());{
+            if(carInfo.get(i).getCarID() == cID);
+            {
                 Date leavingLot = new Date();
                 carInfo.get(i).setDateOut(leavingLot);
                 String amount = priceTotal(carInfo.get(i).timeParked());  //getting total price.
-                this.carParked--;   //removing car from lot.
-                System.out.println("Car #" + cID + " total price is: "+ amount +  ".");
-                System.out.println("Date leaving: "+ carInfo.get(i).getDateOut() +".");
-                carInfo.remove(carInfo.get(i));}
+                System.out.println("Car #" + cID + " total price is: " + amount + ".");
+                System.out.println("Date leaving: " + carInfo.get(i).getDateOut() + ".");
+                carInfo.remove(carInfo.get(i));
+                carParked--; break;   //removing car from lot.
+            }
         }
         /*boolean check = carInfo.contains(cID);
         if(check==false){System.out.println("Car ID not found. Contact Customer Service.");}

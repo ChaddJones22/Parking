@@ -16,7 +16,7 @@ public class Main {
         pl.EnteringLot(car);}
 
 
-        while (j != pl.getLotCapacity()){
+        while (j != pl.getCarsParked()){
             System.out.println("Enter ticket (Car ID): ");
             int carID = scan.nextInt();
             pl.ExitingLot(carID);}
