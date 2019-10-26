@@ -2,31 +2,32 @@ import java.util.ArrayList;
 import java.util.Date;
 
 abstract class ParkingLot {
-    ArrayList<TicketData> carInfo;  //Car Item
-    int lotCapacity; //Parking lot Item
-    int carParked = 0;  //Cars Item
+    ArrayList<TicketData> carInfo;
+    //extended LotGroups
+    int lotCapA = 0;
+    int lotCapB = 0;
+    int lotCapC = 0;
+    int totalLotCap = lotCapA+lotCapB+lotCapC;
+    int carsInLotA = 0;
+    int carsInLotB = 0;
+    int carsInLotC = 0;
+    int totalCarsParked = carsInLotA+carsInLotB+carsInLotC;
+    //extended TicketData
+    char lot;
     int carID;
     Date dateIn = null;
     Date dateOut = null;
-    long timeParked; //ticketBooth item
+    //extended Pricing
+    double discount;
+    double price;
+    double rate = 0.08333;
+    //Universal parameters
     int printTime = 4;
     int waitTime = 2;
-    ParkingLot() {}
-    public int getLotCapacity() { return lotCapacity;}
-    public int getCarsParked() {return carParked;}
-    public ArrayList<TicketData> getCarInfo() {return (ArrayList<TicketData>) carInfo; }
-        /*boolean check = carInfo.contains(cID);
-        if(check==false){System.out.println("Car ID not found. Contact Customer Service.");}
-        else {
-            int i = carInfo.indexOf(cID);
-            Date leavingLot = new Date();   //setting out date.
-            carInfo.get(i).setDateOut(leavingLot);
-            String amount = priceTotal(carInfo.get(i).timeParked());  //getting total price.
-            this.carParked--;   //removing car from lot.
-            System.out.println("Car #" + cID + " total price is: "+ amount +  ".");
-            System.out.println("Date leaving: "+ carInfo.get(i).getDateOut() +".");
-            carInfo.remove(carInfo.get(i));
-        }*/
 
+    ParkingLot() {}
+    public int getTotalLotCap() { return totalLotCap;}
+    public int getCarsParked() {return totalCarsParked;}
+    public ArrayList<TicketData> getCarInfo() {return (ArrayList<TicketData>) carInfo; }
 }
 

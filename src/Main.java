@@ -4,8 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Scanner scan = new Scanner(System.in);
-        Gate pl = new Gate(2);
-        int j=0;
+        Gate pl = new Gate(2,2,2);
 
         for(int i=0;i<3;i++){
         System.out.println("Car attempting to enter lot.");

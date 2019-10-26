@@ -6,16 +6,20 @@ public class TicketData extends ParkingLot {
         this.carID = carID;
         this.dateIn = dateIn;
         this.dateOut = dateOut;
+        this.lot = lot;
     }//constructor
     public void setCarID(){ this.carID = ((int) new Date().getTime());}
     public void setDateIn(){this.dateIn = new Date();}
     public void setDateOut(){this.dateOut = new Date();}
+    public char setLot(char c){this.lot = c; return lot;}
     public Date getDateIn() {return dateIn;}
     public Date getDateOut() {return dateOut;}
     public int getCarID(){return carID;}
-    public String payment(long in, long out){   //calculating time
+    public char getLot(){return lot;}
+
+    public String payment(long in, long out, double rate){   //calculating time
         NumberFormat form = NumberFormat.getCurrencyInstance();
-        double totaling = ((out - in) / (60 * 1000) % 60) *0.08; //$5 an hour.
+        double totaling = ((out - in) / (60 * 1000) % 60) *rate; //$5 an hour at default.
         String pay = form.format(totaling);
         return pay;
     }
