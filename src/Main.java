@@ -1,23 +1,20 @@
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
         Scanner scan = new Scanner(System.in);
-        ParkingLot pl = new ParkingLot(3);
+        Gate pl = new Gate(2);
         int j=0;
 
-        for(int i=0;i<1;i++){
-        System.out.println("Enter Plate ID.");
-        String plateID = scan.next();
-        CarsInLot car = new CarsInLot(plateID);
-        pl.EnteringLot(car);}
+        for(int i=0;i<3;i++){
+        System.out.println("Car attempting to enter lot.");
+        //String plateID = scan.next();
+        //TicketMachine car = new TicketMachine(plateID);
+        pl.EnteringLot();}
 
-
-        while (j != pl.getCarsParked()){
-            System.out.println("Enter ticket (Car ID): ");
+        for(int i=0;i<3;i++){
+           System.out.println("Enter ticket (Car ID): ");
             int carID = scan.nextInt();
             pl.ExitingLot(carID);}
     }
