@@ -1,17 +1,22 @@
+import java.io.File;
+import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 abstract class ParkingLot {
     ArrayList<TicketData> carInfo;
     //extended LotGroups
-    int lotCapA = 0;
-    int lotCapB = 0;
-    int lotCapC = 0;
-    int totalLotCap = lotCapA+lotCapB+lotCapC;
+    int lotCapA;
+    int lotCapB;
+    int lotCapC;
+    int totalLotCap = 0;
     int carsInLotA = 0;
     int carsInLotB = 0;
     int carsInLotC = 0;
-    int totalCarsParked = carsInLotA+carsInLotB+carsInLotC;
+    int currentlyParked = 0;
+    int totalCarsParked = 0;
     //extended TicketData
     char lot;
     int carID;
@@ -20,14 +25,26 @@ abstract class ParkingLot {
     //extended Pricing
     double discount;
     double price;
-    double rate = 0.08333;
+    double rate = 0.08335;
+    double profit;
+    String totalProfit;
     //Universal parameters
-    int printTime = 4;
-    int waitTime = 2;
+    File file = new File("C:\\Users\\Twent\\Documents\\Test Case\\testcase3.txt");
+    Scanner fileScan = new Scanner(file);
 
-    ParkingLot() {}
-    public int getTotalLotCap() { return totalLotCap;}
-    public int getCarsParked() {return totalCarsParked;}
-    public ArrayList<TicketData> getCarInfo() {return (ArrayList<TicketData>) carInfo; }
+    int printTime = 3;  //sim print time in seconds
+    int waitTime = 2;   //sim wait time in seconds
+    NumberFormat form = NumberFormat.getCurrencyInstance();
+    Scanner sc = new Scanner(System.in);
+
+    ParkingLot() throws IOException {}
+    int getTotalLotCap() { return totalLotCap = (lotCapA+lotCapB+lotCapC);} //get total capacity of the lots.
+    int getTotalCarsParked() {return totalCarsParked;}  //get total cars that parked in the lot.
+    int getTotalCarsParkedCurrently() {return currentlyParked = (carsInLotA+carsInLotB+carsInLotC);}  //get cars currently parked in lot
+    String getProfit() {totalProfit = form.format(profit);
+    return totalProfit;}     //get total profit
+    ArrayList<TicketData> getCarInfo() {return (ArrayList<TicketData>) carInfo; }
+
+    //void closeFile() throws IOException {fileOut.close();}
 }
 

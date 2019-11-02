@@ -1,8 +1,8 @@
-import java.text.NumberFormat;
+import java.io.IOException;
 import java.util.Date;
 
 public class TicketData extends ParkingLot {
-    public TicketData() {
+    public TicketData() throws IOException {
         this.carID = carID;
         this.dateIn = dateIn;
         this.dateOut = dateOut;
@@ -17,9 +17,11 @@ public class TicketData extends ParkingLot {
     public int getCarID(){return carID;}
     public char getLot(){return lot;}
 
-    public String payment(long in, long out, double rate){   //calculating time
-        NumberFormat form = NumberFormat.getCurrencyInstance();
-        double totaling = ((out - in) / (60 * 1000) % 60) *rate; //$5 an hour at default.
+    //calculating time
+    public String payment(long in, long out, double rate){
+
+        double totaling = ((out - in) / (60 * 1000) % 60) *rate; //$5 an hour or 0.08333 per min.
+        this.profit = profit + totaling;
         String pay = form.format(totaling);
         return pay;
     }
