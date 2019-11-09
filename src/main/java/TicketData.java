@@ -25,16 +25,4 @@ public class TicketData extends ParkingLot {
         String pay = form.format(totaling);
         return pay;
     }
-
-    /*@Override
-    public boolean equals(Object obj){
-        if (this==obj)
-            return true;
-        if(obj == null || obj.getClass()!=this.getClass())
-            return false;
-        CarData CD = (CarData) obj;
-        return (CD.carID == this.carID && CD.dateIn == this.dateIn);
-    }
-    @Override
-    public int hashCode() { return this.carID; }*/
 }

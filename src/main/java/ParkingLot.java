@@ -45,6 +45,5 @@ abstract class ParkingLot {
     return totalProfit;}     //get total profit
     ArrayList<TicketData> getCarInfo() {return (ArrayList<TicketData>) carInfo; }
 
-    //void closeFile() throws IOException {fileOut.close();}
 }
 

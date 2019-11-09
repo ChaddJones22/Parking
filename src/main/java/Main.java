@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
         Gate pl = new Gate(0,0,0);
         Scanner userInput = new Scanner(System.in); //for console inputs
-        int size1 = 0, size2 = 0, size3 = 0;
+        int size1 = 0, size2 = 0, size3 = 0;  //size2 & size3 is for console inputs
         int counter= 0;
         char answer = 'N';  //for console inputs.
 
@@ -36,13 +36,6 @@ public class Main {
                  pl.ExitingLot(key); counter--;
              }
              if(counter <= 0) break;
-             /*else{
-             System.out.println("Do you want to run program again? y or n");
-             answer = pl.fileScan.next().charAt(0);
-             System.out.println("input: "+answer);
-             if(answer == 'n' || answer == 'N') break;
-
-             }*/
          }
 
 

@@ -1,7 +1,5 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.Time;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class LotGroups extends TicketData{

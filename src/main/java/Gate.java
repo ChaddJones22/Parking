@@ -17,7 +17,6 @@ public class Gate extends LotGroups {
 
     //Car entering Parking lot.
     public void EnteringLot() throws InterruptedException, IOException {
-        //if (this.totalCarsParked == this.totalLotCap) {
         if(getTotalCarsParked() == getTotalLotCap()){
             System.out.println("Parking Lot is full. Come back later.");
             if (getTotalLotCap() == 0) {
@@ -47,7 +46,6 @@ public class Gate extends LotGroups {
             System.out.println("Date: " + ticket.getDateIn() + ".");
             TimeUnit.SECONDS.sleep(waitTime);  //sim waiting
         }
-        //System.out.println("ArrayList: "+ carInfo.get(carParked-1).carID + carInfo.get(carParked-1).dateIn);  testing
     }
 
 
@@ -56,14 +54,10 @@ public class Gate extends LotGroups {
     public void ExitingLot(int cID) throws InterruptedException {
         int loopCounter = 0;
         for(int index = 0; index < (carInfo.size()); index++){
-            //System.out.println("CarID:"+carInfo.get(index).carID+"  CID:"+cID); //testing
             if(carInfo.get(index).carID == cID){
                 carInfo.get(index).setDateOut();    //setting Date out for calculating ticket price
                 double lotRate = getRate(carInfo.get(index).lot);  // getting price rate form LotGroups class
-                //System.out.println("Lot: " + carInfo.get(index).lot + " Rate: " + lotRate );  //testing
                 String amount = payment(carInfo.get(index).dateIn.getTime(),carInfo.get(index).dateOut.getTime(),lotRate);  //getting total price at TicketData
-
-               //System.out.println("DateIn:"+carInfo.get(index).dateIn.getTime()+"  DateOut:"+carInfo.get(index).dateOut.getTime()); //testing
                 System.out.println("Applying Discount from Lot " + carInfo.get(index).lot + ".");
                 System.out.println("Car #" + cID + " total price is: " + amount + ".");
                 System.out.println("Waiting for payment.");
@@ -78,7 +72,6 @@ public class Gate extends LotGroups {
             loopCounter++;  //check if ticket is in the system
         }
         if(loopCounter == carInfo.size()){System.out.println("Ticket not found. Contact Customer Service. 777-9311");}
-        //System.out.println("Array:"+ carInfo.contains(cID)+" Size:"+carInfo.size());  testing
     }
 
 }
